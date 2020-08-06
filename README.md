@@ -30,9 +30,7 @@ It is recommend to resolving the dependency through [conda](https://anaconda.org
    
 *_LibSpatialIndex For Windows:_*
 
-
-Experience is bleak for Windows Installation, for hassle free installation on Windows i would recommend using conda 
-that's how i did it and how the world is doing it
+Experience is pretty grim for Windows Installation, i used conda for trouble free installation. 
 
 ### Inputs
 
