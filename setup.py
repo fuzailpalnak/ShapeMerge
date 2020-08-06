@@ -12,7 +12,7 @@ install_requires = [
 
 setup(
     name="shape_merge",
-    version="0.0.1",
+    version="1.0.0",
     author="Fuzail Palnak",
     author_email="fuzailpalnak@gmail.com",
     description="Library that Merges Geo Spatial Shapes",
