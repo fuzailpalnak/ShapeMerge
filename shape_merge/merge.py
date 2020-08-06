@@ -108,6 +108,9 @@ class ShapeMerge:
 
         Printer.print("Index Created for feature_id : {}".format(feature_id))
 
+        if self._save is None:
+            self._save = SaveGeoJson()
+
     def _simplify_intersecting_ids(self, potential_neighbour_ids, merged_ids) -> list:
         """
         Remove already explored combination and already visited combination
