@@ -1,5 +1,7 @@
 # Shape-Merge
+![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.svg?v=102)
 ![GitHub](https://img.shields.io/github/license/cypherics/ShapeMerge)
+
 
 A Python based GIS library for finding and merging all Geometries that intersects with their neighbour.
 The library will iterate over all the geometries provided in the form of following [Inputs](#Inputs),
@@ -7,6 +9,8 @@ and will look for the neighbours which forms an intersection relationship with i
 *_```the geometry that looks for intersection is reffered as Parent```_*
 either through a direct intersection or an intersection link generated via multiple *Child* *_```geometries which have a relationship associated
 with its Parent either as a direct neighbour or via mutiple neighbour is reffered to as a Child```_* intersection.
+
+![OutputAnimation](https://user-images.githubusercontent.com/24665570/89565549-5b529e80-d83c-11ea-89b9-c259d605e114.gif)
 
 
 ### Installation
@@ -29,6 +33,7 @@ It is recommend to resolving the dependency through [conda](https://anaconda.org
 
 Experience is bleak for Windows Installation, for hassle free installation on Windows i would recommend using conda 
 that's how i did it and how the world is doing it
+
 ### Inputs
 
 *ShapeFile*
