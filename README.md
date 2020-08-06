@@ -18,8 +18,9 @@ I would recommend on resolving the dependency through [conda](https://anaconda.o
 
 - LibSpatialIndex For Linux:
 
-    $ sudo apt-get update -y
-    $ sudo apt-get install -y libspatialindex-dev
+
+    sudo apt-get update -y
+    sudo apt-get install -y libspatialindex-dev
     
     
 - LibSpatialIndex For Windows:
@@ -54,21 +55,23 @@ for feature in feature_collection:
 
 Feature must be of the following structure:
 
-    $ {'type': 'Feature', 'id': str, 'properties': dict, 'geometry': {'type': 'GeometryType', 'coordinates': list}}
+
+    {'type': 'Feature', 'id': str, 'properties': dict, 'geometry': {'type': 'GeometryType', 'coordinates': list}}
                  
             
 ### How to run
 
 After Populating the Index, merging is matter of a function call away, execute the following to begin merging:
 
-    $ shape_merge.merge_geometries()
+    
+    shape_merge.merge_geometries()
 
            
 ### Output
 
 The Output will be a collection, which will contain the merged geometries and the all the ids that were merged together
 
-    $ merged_geoemrty = OrderedDict([(0, {'ids': [ ], 'geometry': {'type': 'GeometryType', 'coordinates': []}})])
+    merged_geoemrty = OrderedDict([(0, {'ids': [ ], 'geometry': {'type': 'GeometryType', 'coordinates': []}})])
       
  
 ### Parameters
@@ -78,7 +81,7 @@ The Output will be a collection, which will contain the merged geometries and th
 During rtree index creation the bounds of individual geometry are added with buffer of 0, 
 This param controls on how big the original bounds should grow.
     
-    $ geometry.bounds.buffer(self.__bounds_buffer)
+    geometry.bounds.buffer(self.__bounds_buffer)
     
 > The bounds of the geometry are responsible for finding potential intersecting neighbour
 > i.e everything that lies in the bound is considered as a potential neighbour. A large value of bound value will 
@@ -88,11 +91,6 @@ This param controls on how big the original bounds should grow.
 
 Add buffer to geometries while checking if they intersect with each other
 
-    $ geometry_1.buffer(self.__geometry_buffer).intersects(geometry_2.buffer(self.__geometry_buffer))
-        
-### Geometry Type
 
-1. MultiPolygon
-2. Polygon
-3. LineString
-4. MultiLineString
+    geometry_1.buffer(self.__geometry_buffer).intersects(geometry_2.buffer(self.__geometry_buffer))
+        
