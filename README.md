@@ -19,10 +19,11 @@ I would recommend on resolving the dependency through [conda](https://anaconda.o
 - LibSpatialIndex For Linux:
 
 
-    sudo apt-get update -y
-    sudo apt-get install -y libspatialindex-dev
+    $ sudo apt-get update -y
+    $ sudo apt-get install -y libspatialindex-dev
     
     
+   
 - LibSpatialIndex For Windows:
 
 
