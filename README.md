@@ -1,4 +1,5 @@
 # Shape-Merge
+![GitHub](https://img.shields.io/github/license/cypherics/ShapeMerge)
 
 A Python based GIS library for finding and merging all Geometries that intersects with their neighbour.
 The library will iterate over all the geometries provided in the form of following [Inputs](#Inputs),
@@ -14,7 +15,7 @@ with its Parent either as a direct neighbour or via mutiple neighbour is reffere
     
 ### Requirements
 The library uses [Rtree](https://rtree.readthedocs.io/en/latest/) which has a dependency on [libspatialindex](https://libspatialindex.org/), 
-I would recommend on resolving the dependency through [conda](https://anaconda.org/conda-forge/libspatialindex)
+It is recommend to resolving the dependency through [conda](https://anaconda.org/conda-forge/libspatialindex)
 
 *_LibSpatialIndex For Linux:_*
 
@@ -26,10 +27,8 @@ I would recommend on resolving the dependency through [conda](https://anaconda.o
 *_LibSpatialIndex For Windows:_*
 
 
-I m not sure on how to install for windows, here is a [answer](https://gis.stackexchange.com/questions/120527/installing-libspatialindex-on-windows-8)
-, which again i m not sure about. I installed on my windows using conda and i would recommend using conda for hassle
-free installation
-
+Experience is bleak for Windows Installation, for hassle free installation on Windows i would recommend using conda 
+that's how i did it and how the world is doing it
 ### Inputs
 
 *ShapeFile*
