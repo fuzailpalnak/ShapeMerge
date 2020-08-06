@@ -71,9 +71,10 @@ class SaveGeoJson(Save):
     def save(self, merged_collection: OrderedDict):
         out_file = os.path.join(self.out_folder, "merged.geojson")
         features = list()
-        for i in merged_collection.keys():
+        for iterator, i in enumerate(merged_collection.keys()):
             features.append(
                 Feature(
+                    id=iterator,
                     geometry=merged_collection[i]["geometry"],
                     properties={
                         "My id": int(i),
