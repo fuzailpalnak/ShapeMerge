@@ -10,21 +10,20 @@ with its Parent either as a direct neighbour or via mutiple neighbour is reffere
 
 ### Installation
 
-    $ pip install git+https://github.com/cypherics/ShapeMerge.git#egg=ShapeMerge
+    pip install git+https://github.com/cypherics/ShapeMerge.git#egg=ShapeMerge
     
 ### Requirements
 The library uses [Rtree](https://rtree.readthedocs.io/en/latest/) which has a dependency on [libspatialindex](https://libspatialindex.org/), 
 I would recommend on resolving the dependency through [conda](https://anaconda.org/conda-forge/libspatialindex)
 
-- LibSpatialIndex For Linux:
-
+*_LibSpatialIndex For Linux:_*
 
     $ sudo apt-get update -y
     $ sudo apt-get install -y libspatialindex-dev
-    
+        
     
    
-- LibSpatialIndex For Windows:
+*_LibSpatialIndex For Windows:_*
 
 
 I m not sure on how to install for windows, here is a [answer](https://gis.stackexchange.com/questions/120527/installing-libspatialindex-on-windows-8)
