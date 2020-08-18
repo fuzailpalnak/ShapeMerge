@@ -1,6 +1,8 @@
 # Shape-Merge
-![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.svg?v=102)
 ![GitHub](https://img.shields.io/github/license/cypherics/ShapeMerge)
+![Python](https://img.shields.io/badge/python-v3.6+-blue.svg)
+![Contributions welcome](https://img.shields.io/badge/contributions-welcome-orange.svg)
+
 
 
 A Python based GIS library for finding and merging all Geometries that intersects with their neighbour.
