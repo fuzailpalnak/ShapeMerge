@@ -17,11 +17,11 @@ with its Parent either as a direct neighbour or via mutiple neighbour is reffere
 
 ### Installation
 
-    pip install git+https://github.com/cypherics/ShapeMerge.git#egg=ShapeMerge
+    pip install shape-merge
     
 ### Requirements
 The library uses [Rtree](https://rtree.readthedocs.io/en/latest/) which has a dependency on [libspatialindex](https://libspatialindex.org/), 
-It is recommend to resolving the dependency through [conda](https://anaconda.org/conda-forge/libspatialindex)
+It is recommend to resolving the dependency through [libspatialindex conda](https://anaconda.org/conda-forge/libspatialindex)
 
 *_LibSpatialIndex For Linux:_*
 
@@ -31,8 +31,18 @@ It is recommend to resolving the dependency through [conda](https://anaconda.org
     
    
 *_LibSpatialIndex For Windows:_*
-
+    
 Experience is pretty grim for Windows Installation, i used conda for trouble free installation. 
+
+
+*_Rtree_*
+
+    conda install -c conda-forge rtree
+
+*_Fiona_*
+
+    conda install -c conda-forge fiona
+
 
 ### Inputs
 

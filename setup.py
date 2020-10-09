@@ -5,9 +5,7 @@ with open("README.md", "r") as fh:
 
 install_requires = [
     "shapely == 1.7.0",
-    "fiona >= 1.8.13",
     "geojson >= 2.5.0",
-    "rtree >= 0.9.4",
 ]
 
 setup(
