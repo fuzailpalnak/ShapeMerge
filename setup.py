@@ -6,6 +6,7 @@ with open("README.md", "r") as fh:
 install_requires = [
     "shapely == 1.7.0",
     "geojson >= 2.5.0",
+    "py-oneliner == 0.0.1"
 ]
 
 setup(
