@@ -5,7 +5,7 @@ from geojson import Feature, FeatureCollection, dump
 
 from collections import OrderedDict
 
-from shape_merge.printer import Printer
+from py_oneliner import one_liner
 
 
 class Save:
@@ -47,10 +47,13 @@ class SaveFiona(Save):
         with fiona.open(
             out_file, "w", crs=self.crs, driver="ESRI Shapefile", schema=self.schema
         ) as output:
-            Printer.print_new_line(
-                "File initialized with geometry :{}, crs: {}, schema: {}".format(
-                    self.geometry_type, self.crs, self.schema
-                )
+            one_liner.one_line(
+                tag="Save File Initiated",
+                tag_data=f"geometry: {self.geometry_type}, crs: {self.crs}, schema: {self.schema}",
+                tag_color="yellow",
+                tag_data_color="green",
+                to_reset_data=True,
+                to_new_line_data=True,
             )
             for i in merged_collection.keys():
                 newline = {

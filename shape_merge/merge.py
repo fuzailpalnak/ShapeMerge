@@ -7,8 +7,9 @@ from collections import OrderedDict
 from shapely.geometry import shape, mapping
 from shapely.ops import cascaded_union
 
-from shape_merge.printer import Printer
 from shape_merge.save import SaveFiona, SaveGeoJson
+
+from py_oneliner import one_liner
 
 
 class ShapeMerge:
@@ -106,8 +107,11 @@ class ShapeMerge:
         self._index.insert(feature_id, geometry.bounds)
         self._feature_geometry_collection[feature_id] = feature["geometry"]
 
-        Printer.print("Index Created for feature_id : {}".format(feature_id))
-
+        one_liner.one_line(
+            tag="Index Created for feature_id",
+            tag_data=f"{feature_id}",
+            tag_color="cyan",
+        )
         if self._save is None:
             self._save = SaveGeoJson()
 
@@ -258,22 +262,32 @@ class ShapeMerge:
         for iterator, individual_collection in enumerate(
             self._feature_geometry_collection.items()
         ):
-            Printer.print(
-                "Merging of Geometry In Progress: {} / {}".format(
-                    str(iterator + 1), str(len(self._feature_geometry_collection)),
-                )
+            one_liner.one_line(
+                tag="Merging of Geometry In Progress",
+                tag_data=f"{str(iterator + 1)} / {str(len(self._feature_geometry_collection))}",
+                tag_color="cyan",
+                to_reset_data=True,
             )
+
             self._find_my_neighbour(individual_collection[0], individual_collection[1])
-        Printer.print_new_line(
-            "Reduced Geometry Count From {} to {}".format(
-                len(self._feature_geometry_collection), len(self._combined_geometries)
-            )
+
+        one_liner.one_line(
+            tag="Geometry Count",
+            tag_data=f"from {len(self._feature_geometry_collection)} "
+            f"to {str(len(self._combined_geometries))}",
+            tag_color="cyan",
+            to_reset_data=True,
+            to_new_line_data=True,
         )
+
         if self._save is not None:
-            Printer.print_new_line(
-                "Saving InProgress For Geometry as Type : {}".format(
-                    self._save.__class__.__name__
-                )
+            one_liner.one_line(
+                tag="Saving InProgress",
+                tag_data=f"{self._save.__class__.__name__}",
+                tag_color="cyan",
+                tag_data_color="red",
+                to_reset_data=True,
+                to_new_line_data=True,
             )
             self._save.save(self._combined_geometries)
         return self._combined_geometries
