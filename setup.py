@@ -11,10 +11,10 @@ install_requires = [
 
 setup(
     name="shape_merge",
-    version="1.0.0",
+    version="1.0.1",
     author="Fuzail Palnak",
     author_email="fuzailpalnak@gmail.com",
-    url="https://github.com/cypherics/ShapeMerge",
+    url="https://github.com/fuzailpalnak/ShapeMerge",
     description="Library that Merges Geo Spatial Shapes",
     long_description=long_description,
     long_description_content_type="text/markdown",
