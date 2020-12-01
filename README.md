@@ -2,6 +2,7 @@
 ![GitHub](https://img.shields.io/github/license/cypherics/ShapeMerge)
 ![Python](https://img.shields.io/badge/python-v3.6+-blue.svg)
 ![Contributions welcome](https://img.shields.io/badge/contributions-welcome-orange.svg)
+![Downloads](https://pepy.tech/badge/shape-merge)
 
 
 
