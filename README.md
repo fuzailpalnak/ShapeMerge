@@ -13,6 +13,9 @@ and will look for the neighbours which forms an intersection relationship with i
 either through a direct intersection or an intersection link generated via multiple *Child* *_```geometries which have a relationship associated
 with its Parent either as a direct neighbour or via mutiple neighbour is reffered to as a Child```_* intersection.
 
+
+<a href='https://ko-fi.com/fuzailpalnak' target='_blank'><img height='36' style='border:0px;height:36px;' src='https://az743702.vo.msecnd.net/cdn/kofi1.png?v=0' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a>
+
 ![OutputAnimation](https://user-images.githubusercontent.com/24665570/89565549-5b529e80-d83c-11ea-89b9-c259d605e114.gif)
 
 
