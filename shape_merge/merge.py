@@ -102,7 +102,10 @@ class ShapeMerge:
                 )
             )
         feature_id = int(feature["id"])
-        geometry = shape(feature["geometry"]).buffer(self._bounds_buffer)
+        geometry = shape(feature["geometry"])
+
+        if self._bounds_buffer > 0:
+            geometry = geometry.buffer(self._bounds_buffer)
 
         self._index.insert(feature_id, geometry.bounds)
         self._feature_geometry_collection[feature_id] = feature["geometry"]
@@ -164,7 +167,9 @@ class ShapeMerge:
         """
         return [feature_id], [geometry]
 
-    def _is_neighbour(self, potential_neighbour_geometry, current_geometry) -> bool:
+    def _is_buffered_neighbour(
+        self, potential_neighbour_geometry, current_geometry
+    ) -> bool:
         """
         From the collection of neighbours found by Rtree current_geometry.bounds, which of them actually intersects
         with current_geometry
@@ -175,6 +180,17 @@ class ShapeMerge:
         return potential_neighbour_geometry.buffer(self._geometry_buffer).intersects(
             current_geometry.buffer(self._geometry_buffer)
         )
+
+    @staticmethod
+    def _is_neighbour(potential_neighbour_geometry, current_geometry) -> bool:
+        """
+        From the collection of neighbours found by Rtree current_geometry.bounds, which of them actually intersects
+        with current_geometry
+        :param potential_neighbour_geometry: geometry of neighbour found by rtree
+        :param current_geometry: ongoing geometry, for which neighbour are to be found
+        :return: True if intersects else False
+        """
+        return potential_neighbour_geometry.intersects(current_geometry)
 
     def _new_neighbours(
         self,
@@ -207,10 +223,18 @@ class ShapeMerge:
         )
 
         for potential_neighbour_id in potential_neighbour_ids:
-            if self._is_neighbour(
-                shape(self._feature_geometry_collection[potential_neighbour_id]),
-                child_geometry,
-            ):
+            is_neighbour = (
+                self._is_neighbour(
+                    shape(self._feature_geometry_collection[potential_neighbour_id]),
+                    child_geometry,
+                )
+                if self._geometry_buffer == 0
+                else self._is_buffered_neighbour(
+                    shape(self._feature_geometry_collection[potential_neighbour_id]),
+                    child_geometry,
+                )
+            )
+            if is_neighbour:
                 neighbours_to_visit.append(potential_neighbour_id)
                 neighbours_geometry.append(
                     shape(self._feature_geometry_collection[potential_neighbour_id])
@@ -280,6 +304,9 @@ class ShapeMerge:
             to_new_line_data=True,
         )
 
+        return self._combined_geometries
+
+    def save_geometries(self):
         if self._save is not None:
             one_liner.one_line(
                 tag="Saving InProgress",
@@ -290,4 +317,3 @@ class ShapeMerge:
                 to_new_line_data=True,
             )
             self._save.save(self._combined_geometries)
-        return self._combined_geometries
