@@ -46,6 +46,10 @@ class ShapeMerge:
     def geometry_type(self, value):
         self._geometry_type = value
 
+    @property
+    def merged_geom(self):
+        return self._combined_geometries
+
     def populate_index_by_geojson(self, geo_json_path: str):
         obj = geojson.loads(open(geo_json_path).read())
         if "features" not in obj:
@@ -115,8 +119,6 @@ class ShapeMerge:
             tag_data=f"{feature_id}",
             tag_color="cyan",
         )
-        if self._save is None:
-            self._save = SaveGeoJson()
 
     def _simplify_intersecting_ids(self, potential_neighbour_ids, merged_ids) -> list:
         """
@@ -190,7 +192,7 @@ class ShapeMerge:
         :param current_geometry: ongoing geometry, for which neighbour are to be found
         :return: True if intersects else False
         """
-        return potential_neighbour_geometry.intersects(current_geometry)
+        return potential_neighbour_geometry.touches(current_geometry)
 
     def _new_neighbours(
         self,
@@ -307,13 +309,15 @@ class ShapeMerge:
         return self._combined_geometries
 
     def save_geometries(self):
-        if self._save is not None:
-            one_liner.one_line(
-                tag="Saving InProgress",
-                tag_data=f"{self._save.__class__.__name__}",
-                tag_color="cyan",
-                tag_data_color="red",
-                to_reset_data=True,
-                to_new_line_data=True,
-            )
-            self._save.save(self._combined_geometries)
+        if self._save is None:
+            self._save = SaveGeoJson()
+
+        one_liner.one_line(
+            tag="Saving InProgress",
+            tag_data=f"{self._save.__class__.__name__}",
+            tag_color="cyan",
+            tag_data_color="red",
+            to_reset_data=True,
+            to_new_line_data=True,
+        )
+        self._save.save(self._combined_geometries)
