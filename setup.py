@@ -7,7 +7,7 @@ install_requires = ["shapely == 1.7.0", "geojson >= 2.5.0", "py-oneliner == 0.0.
 
 setup(
     name="shape_merge",
-    version="1.0.2",
+    version="1.0.3",
     author="Fuzail Palnak",
     author_email="fuzailpalnak@gmail.com",
     url="https://github.com/fuzailpalnak/ShapeMerge",
